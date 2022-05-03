@@ -6,13 +6,14 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import com.devexperto.architectcoders.domain.Movie
 import com.devexperto.architectcoders.ui.compose.main.Main
+import com.devexperto.architectcoders.ui.main.MainViewModel
 
 @ExperimentalFoundationApi
 class ComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Main(movies)
+            Main(MainViewModel.UiState(movies = movies))
         }
     }
 }
