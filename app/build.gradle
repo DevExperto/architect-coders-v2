@@ -20,6 +20,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "com.devexperto.architectcoders.di.HiltTestRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
 
     buildTypes {
@@ -37,6 +40,7 @@ android {
     }
     buildFeatures {
         dataBinding true
+        compose true
     }
 
     sourceSets {
@@ -46,6 +50,14 @@ android {
 
         androidTest {
             java.srcDirs += "$projectDir/src/testShared/java"
+        }
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion Libs.Compose.version
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
 }
@@ -71,6 +83,7 @@ dependencies {
 
     implementation Libs.AndroidX.Room.runtime
     implementation Libs.AndroidX.Room.ktx
+
     kapt Libs.AndroidX.Room.compiler
 
     implementation Libs.playServicesLocation
@@ -86,6 +99,13 @@ dependencies {
 
     implementation Libs.Hilt.android
     kapt Libs.Hilt.compiler
+
+    implementation Libs.Compose.UI.ui
+    implementation Libs.Compose.Material.material
+    implementation Libs.Compose.UI.toolingPreview
+    implementation Libs.AndroidX.Activity.compose
+
+    debugImplementation Libs.Compose.UI.tooling
 
     testImplementation project(":testShared")
     testImplementation Libs.JUnit.junit
@@ -103,4 +123,5 @@ dependencies {
     kaptAndroidTest Libs.Hilt.compiler
 
     androidTestImplementation Libs.OkHttp3.mockWebServer
+    androidTestImplementation Libs.Compose.UI.testJunit4
 }

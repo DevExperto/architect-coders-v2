@@ -30,6 +30,7 @@ object Libs {
         object Activity {
             private const val version = "1.4.0"
             const val ktx = "androidx.activity:activity-ktx:1.4.0"
+            const val compose = "androidx.activity:activity-compose:1.4.0"
         }
 
         object Lifecycle {
@@ -114,5 +115,21 @@ object Libs {
     }
 
     const val turbine = "app.cash.turbine:turbine:0.7.0"
+
+    object Compose {
+        const val version = "1.1.1"
+
+        object Material{
+            const val material = "androidx.compose.material:material:$version"
+        }
+
+        object UI {
+            const val ui = "androidx.compose.ui:ui:$version"
+
+            const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:$version"
+            const val testJunit4 = "androidx.compose.ui:ui-test-junit4:$version"
+            const val tooling =  "androidx.compose.ui:ui-tooling:$version"
+        }
+    }
 
 }
