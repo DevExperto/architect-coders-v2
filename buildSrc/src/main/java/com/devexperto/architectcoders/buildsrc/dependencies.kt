@@ -132,4 +132,6 @@ object Libs {
         }
     }
 
+    const val coil = "io.coil-kt:coil-compose:2.0.0-rc03"
+
 }

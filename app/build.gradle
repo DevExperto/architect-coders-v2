@@ -104,6 +104,7 @@ dependencies {
     implementation Libs.Compose.Material.material
     implementation Libs.Compose.UI.toolingPreview
     implementation Libs.AndroidX.Activity.compose
+    implementation Libs.coil
 
     debugImplementation Libs.Compose.UI.tooling
 

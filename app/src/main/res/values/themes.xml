@@ -18,6 +18,9 @@
     <style name="Theme.ArchitectCoders.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ArchitectCoders.NoActionBar.TransparentStatus">
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 

@@ -3,41 +3,32 @@ package com.devexperto.architectcoders.ui.compose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.devexperto.architectcoders.ui.compose.ui.theme.ArchitectCodersTheme
+import androidx.compose.foundation.ExperimentalFoundationApi
+import com.devexperto.architectcoders.domain.Movie
+import com.devexperto.architectcoders.ui.compose.main.Main
 
+@ExperimentalFoundationApi
 class ComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ArchitectCodersTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+            Main(movies)
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ArchitectCodersTheme {
-        Greeting("Android")
-    }
+val movies = (1..10).map {
+    Movie(
+        1,
+        "Title $it",
+        "",
+        "",
+        "https://loremflickr.com/200/400/cover?lock=$it",
+        "",
+        "EN",
+        "Title $it",
+        5.1,
+        2.2,
+        it % 3 == 0
+    )
 }
