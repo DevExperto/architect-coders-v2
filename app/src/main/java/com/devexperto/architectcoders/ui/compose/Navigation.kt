@@ -28,7 +28,7 @@ fun Navigation() {
             "detail/{movieId}",
             arguments = listOf(navArgument("movieId") { type = NavType.IntType })
         ) {
-            Detail()
+            Detail(onBack = { navController.popBackStack() })
         }
     }
 }

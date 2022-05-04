@@ -4,4 +4,6 @@
     <string name="server_error">\"Server Error: \"</string>
     <string name="unknown_error">\"Unknown Error: \"</string>
     <string name="title_activity_compose">AC Compose</string>
+    <string name="navigate_back">Navigate back</string>
+    <string name="switch_favorite">Switch Favorite</string>
 </resources>
