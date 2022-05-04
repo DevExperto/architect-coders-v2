@@ -15,12 +15,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.devexperto.architectcoders.R
 import com.devexperto.architectcoders.domain.Error
+import com.devexperto.architectcoders.domain.Movie
 import com.devexperto.architectcoders.ui.compose.Screen
 import com.devexperto.architectcoders.ui.main.MainViewModel
 
 @ExperimentalFoundationApi
 @Composable
-fun Main(state: MainViewModel.UiState) {
+fun Main(state: MainViewModel.UiState, onMovieClicked: (Movie) -> Unit) {
     Screen {
         Scaffold(
             topBar = {
@@ -36,7 +37,7 @@ fun Main(state: MainViewModel.UiState) {
                 contentAlignment = Alignment.Center
             ) {
                 if (state.movies != null) {
-                    MoviesGrid(state.movies)
+                    MoviesGrid(state.movies, onMovieClicked)
                 }
                 if (state.loading) {
                     CircularProgressIndicator()

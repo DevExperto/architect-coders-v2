@@ -105,6 +105,7 @@ dependencies {
     implementation Libs.Compose.UI.toolingPreview
     implementation Libs.AndroidX.Activity.compose
     implementation Libs.coil
+    implementation Libs.AndroidX.hiltNavigationCompose
 
     debugImplementation Libs.Compose.UI.tooling
 
