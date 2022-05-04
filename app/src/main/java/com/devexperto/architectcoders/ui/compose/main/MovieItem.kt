@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.devexperto.architectcoders.domain.Movie
@@ -37,9 +38,11 @@ fun MovieItem(movie: Movie, modifier: Modifier = Modifier) {
                     .background(bgColor)
                     .padding(8.dp)
                     .fillMaxWidth()
-                    .heightIn(min = 36.dp)
+                    .height(48.dp)
                     .wrapContentHeight(),
-                color = contentColorFor(backgroundColor = bgColor)
+                color = contentColorFor(backgroundColor = bgColor),
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
             )
         }
 

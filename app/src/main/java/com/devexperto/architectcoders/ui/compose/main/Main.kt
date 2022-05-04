@@ -9,15 +9,25 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.devexperto.architectcoders.R
 import com.devexperto.architectcoders.domain.Error
 import com.devexperto.architectcoders.domain.Movie
 import com.devexperto.architectcoders.ui.compose.Screen
 import com.devexperto.architectcoders.ui.main.MainViewModel
+
+@ExperimentalFoundationApi
+@Composable
+fun Main(viewModel: MainViewModel = hiltViewModel(), onMovieClicked: (Movie) -> Unit) {
+    val state by viewModel.state.collectAsState()
+    Main(state, onMovieClicked)
+}
 
 @ExperimentalFoundationApi
 @Composable

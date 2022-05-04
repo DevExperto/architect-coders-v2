@@ -7,12 +7,21 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.devexperto.architectcoders.ui.compose.Screen
 import com.devexperto.architectcoders.ui.compose.main.ErrorMessage
 import com.devexperto.architectcoders.ui.compose.main.errorToString
 import com.devexperto.architectcoders.ui.detail.DetailViewModel
+
+@Composable
+fun Detail(viewModel: DetailViewModel = hiltViewModel()) {
+    val state by viewModel.state.collectAsState()
+    Detail(state)
+}
 
 @Composable
 fun Detail(state: DetailViewModel.UiState) {
@@ -46,5 +55,5 @@ fun Detail(state: DetailViewModel.UiState) {
 fun findTitle(state: DetailViewModel.UiState): String = when {
     state.movie != null -> state.movie.title
     state.error != null -> errorToString(state.error)
-    else -> throw IllegalStateException()
+    else -> ""
 }
